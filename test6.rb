@@ -1,15 +1,28 @@
 require 'sinatra'
 
 get '/test' do
+  if params['op'] == 'add'
+    result = params['a'].to_i + params['b'].to_i
+  elsif params['op'] == 'minus'
+    result = params['a'].to_i - params['b'].to_i
+  elsif params['op'] == 'multiply'
+    result = params['a'].to_i * params['b'].to_i
+  elsif params['op'] == 'devide'
+    result = params['a'].to_f / params['b'].to_f
+  end
+
   %Q{
     <form>
       <input name="a">
       <select name="op">
-        <option value=""></option>
+        <option value="add">+</option>
+        <option value="minus">-</option>
+        <option value="multiply">×</option>
+        <option value="devide">÷</option>
       </select>
-      <input name="a">
+      <input name="b">
       <input type="submit" value="送信">
     </form>
-    入力された文字: #{params['a']}
+    答え: #{result}
   }
 end
