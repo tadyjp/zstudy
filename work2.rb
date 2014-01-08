@@ -3,7 +3,7 @@ require 'sinatra'
 get '/test' do
   if params['op'] == 'add'
     result = params['a'].to_i + params['b'].to_i
-  elsif params['op'] == 'minus'
+  elsif params['op'] == 'subtract'
     result = params['a'].to_i - params['b'].to_i
   elsif params['op'] == 'multiply'
     result = params['a'].to_i * params['b'].to_i
@@ -16,7 +16,7 @@ get '/test' do
       <input name="a">
       <select name="op">
         <option value="add">+</option>
-        <option value="minus">-</option>
+        <option value="subtract">-</option>
         <option value="multiply">×</option>
         <option value="devide">÷</option>
       </select>
